@@ -150,8 +150,8 @@ function App() {
           setMuted((m) => !m);
           vibrate(15);
         }}
-        className="fixed bottom-5 right-5 z-[70] glass h-12 w-12 rounded-full grid place-items-center active:scale-95 transition"
-        style={{ marginBottom: "env(safe-area-inset-bottom)" }}
+        className="fixed top-5 right-5 z-[70] glass h-12 w-12 rounded-full grid place-items-center active:scale-95 transition"
+        style={{ marginTop: "env(safe-area-inset-top)" }}
         aria-label="Toggle sound"
       >
         {muted ? <FaVolumeMute /> : <FaVolumeUp className="text-spider-red" />}
@@ -227,7 +227,7 @@ function App() {
                 SUIT UNLOCKED
               </div>
               <div className="mt-6 text-xl md:text-2xl text-white/90">{unlocked}</div>
-              <GiSpiderMask className="mx-auto mt-8 text-7xl md:text-8xl text-spider-red animate-pulse-glow" />
+              <GiSpiderMask className="mx-auto mt-4 text-7xl md:text-8xl text-spider-red animate-pulse-glow" />
             </div>
           </motion.div>
         )}
@@ -294,7 +294,7 @@ function Loading({
               {steps[i]}
             </motion.div>
           </AnimatePresence>
-          <div className="mt-4 h-1 w-full bg-white/10 rounded-full overflow-hidden">
+          <div className="mt-2 text-sm md:text-base h-1 w-full bg-white/10 rounded-full overflow-hidden">
             <motion.div
               className="h-full bg-gradient-to-r from-spider-red to-spider-blue"
               initial={{ width: 0 }}
@@ -376,7 +376,7 @@ function Mission({ onAccept, onTrailer }: { onAccept: () => void; onTrailer: () 
             <br />
             Ready to join?
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 relative min-h-[80px]">
+          <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-4 relative min-h-[80px]">
             <motion.button
               onClick={onAccept}
               whileTap={{ scale: 0.96 }}
@@ -451,7 +451,7 @@ function Accepted({ onNext }: { onNext: () => void }) {
         >
           MISSION ACCEPTED
         </motion.h1>
-        <div className="mt-4 space-y-1 font-display text-sm sm:text-base text-white/70 tracking-widest">
+        <div className="mt-2 text-sm md:text-base space-y-1 font-display text-sm sm:text-base text-white/70 tracking-widest">
           <div>ACCESS GRANTED</div>
           <div>SCANNING...</div>
           <div className="text-spider-blue text-glow-blue">MISSION READY</div>
@@ -480,7 +480,7 @@ function Movie({ onNext, onTrailer }: { onNext: () => void; onTrailer: () => voi
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="relative min-h-[100dvh] grid place-items-center px-5 py-12"
+      className="relative min-h-[100dvh] flex items-start md:items-center justify-center px-4 py-6 md:px-5 md:py-12"
     >
       <div className="max-w-5xl w-full grid md:grid-cols-2 gap-8 items-center">
         <motion.div
@@ -509,12 +509,12 @@ function Movie({ onNext, onTrailer }: { onNext: () => void; onTrailer: () => voi
         </motion.div>
         <div className="text-center md:text-left">
           <div className="text-xs tracking-[0.5em] text-spider-red text-glow-red">NOW PLAYING</div>
-          <h2 className="mt-3 font-display text-3xl sm:text-5xl">A new chapter begins.</h2>
-          <p className="mt-4 text-white/70">
+          <h2 className="mt-3 font-display text-2xl md:text-5xl">A new chapter begins.</h2>
+          <p className="mt-2 text-sm md:text-base text-white/70">
             The multiverse is fractured. New York needs its hero. Peter Parker must rise again — as
             someone the world has never seen.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4">
+          <div className="mt-4 flex flex-col sm:flex-row gap-3 sm:gap-4">
             <button
               onClick={() => window.open("https://www.youtube.com/watch?v=E1kipafZW2I", "_blank")}
               className="glass glow-red px-6 py-3 rounded-full inline-flex items-center justify-center gap-2 font-display tracking-widest min-h-[48px]"
@@ -557,10 +557,10 @@ function Theatre({
         <div className="text-xs tracking-[0.5em] text-spider-blue text-glow-blue text-center">
           SELECT SHOWTIME
         </div>
-        <div className="glass rounded-3xl p-6 sm:p-8 mt-4 text-center">
+        <div className="glass rounded-3xl p-6 sm:p-8 mt-2 text-sm md:text-base text-center">
           <div className="text-white/60 text-sm">Location</div>
           <div className="font-display text-xl sm:text-2xl">{THEATRE_LOCATION}</div>
-          <div className="mt-4 text-white/60 text-sm">Cinema</div>
+          <div className="mt-2 text-sm md:text-base text-white/60 text-sm">Cinema</div>
           <div className="font-display text-2xl sm:text-3xl text-glow-red">{THEATRE_NAME}</div>
           <div className="mt-3 flex justify-center gap-4 text-xs text-white/70 font-display tracking-widest">
             <span>{HALL_NO}</span>
@@ -581,7 +581,7 @@ function Theatre({
             ))}
           </div>
         </div>
-        <div className="mt-8 text-center">
+        <div className="mt-4 text-center">
           <button
             onClick={onNext}
             className="glass glow-blue px-8 py-4 rounded-full font-display tracking-widest inline-flex items-center gap-2 min-h-[52px]"
@@ -610,7 +610,7 @@ function Identity({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="relative min-h-[100dvh] grid place-items-center px-5"
+      className="glass rounded-3xl aspect-[2/3] relative overflow-hidden mx-auto w-56 sm:w-72 md:w-full md:max-w-sm"
     >
       <div className="w-full max-w-lg glass rounded-3xl p-6 sm:p-8 text-center">
         <GiSpiderMask className="mx-auto text-6xl text-spider-red animate-pulse-glow" />
@@ -652,7 +652,7 @@ function SuitPick({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="relative min-h-[100dvh] px-5 py-12"
+      className="glass rounded-3xl aspect-[2/3] relative overflow-hidden mx-auto w-56 sm:w-72 md:w-full md:max-w-sm"
     >
       <div className="w-full max-w-5xl mx-auto">
         <div className="text-center">
@@ -662,7 +662,7 @@ function SuitPick({
           <h2 className="font-display text-3xl sm:text-4xl mt-1">Choose Your Spider Suit</h2>
           <p className="text-white/60 text-sm mt-2">Tap a suit to equip</p>
         </div>
-        <div className="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {SUITS.map((s) => {
             const active = suit.id === s.id;
             return (
@@ -800,7 +800,7 @@ function Cards({ name, suit, onNext }: { name: string; suit: Suit; onNext: () =>
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="relative min-h-[100dvh] px-3 py-10"
+      className="glass rounded-3xl aspect-[2/3] relative overflow-hidden mx-auto w-56 sm:w-72 md:w-full md:max-w-sm"
     >
       <div className="max-w-[1040px] mx-auto">
         <div className="text-center mb-6">
@@ -1099,7 +1099,7 @@ function Cards({ name, suit, onNext }: { name: string; suit: Suit; onNext: () =>
           </button>
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-4 text-center">
           <button
             onClick={onNext}
             className="glass glow-blue px-8 py-4 rounded-full font-display tracking-widest inline-flex items-center gap-2 min-h-[52px]"
@@ -1251,7 +1251,7 @@ function Ticket({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="relative min-h-[100dvh] px-3 py-10"
+      className="glass rounded-3xl aspect-[2/3] relative overflow-hidden mx-auto w-56 sm:w-72 md:w-full md:max-w-sm"
     >
       <div className="max-w-[1040px] mx-auto">
         <div className="text-center mb-6">
@@ -1623,7 +1623,7 @@ function Ticket({
           </button>
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-4 text-center">
           <button
             onClick={onNext}
             className="glass glow-blue px-8 py-4 rounded-full font-display tracking-widest inline-flex items-center gap-2 min-h-[52px]"
@@ -1717,7 +1717,7 @@ function Complete({ onRestart }: { onRestart: () => void }) {
         </motion.h1>
         <p className="mt-6 text-lg sm:text-xl text-white/80">Welcome to the Spider Society.</p>
         <p className="mt-1 text-base sm:text-lg text-white/60">Enjoy the Movie!</p>
-        <GiSpiderMask className="mx-auto mt-8 text-7xl sm:text-8xl text-spider-red animate-pulse-glow" />
+        <GiSpiderMask className="mx-auto mt-4 text-7xl sm:text-8xl text-spider-red animate-pulse-glow" />
         <button
           onClick={onRestart}
           className="mt-10 glass glow-blue px-8 py-4 rounded-full font-display tracking-widest min-h-[52px]"
