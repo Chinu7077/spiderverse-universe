@@ -502,7 +502,7 @@ function Movie({ onNext, onTrailer }: { onNext: () => void; onTrailer: () => voi
             </div>
             <div className="font-display text-lg sm:text-2xl text-white/90">Brand New Day</div>
             <div className="mt-3 text-[10px] tracking-[0.3em] text-white/60">
-              IN THEATRES · 31 July 2026
+              IN THEATRES · 30 July 2026
             </div>
           </div>
           <div className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-holo-shine" />
@@ -1175,7 +1175,7 @@ function Ticket({
 }) {
   const ticketRef = useRef<HTMLDivElement>(null);
   const qr = useQR(`TICKET::${bookingId}::${name}::${time}::A12,A13`);
-  const releaseDate = "24 Dec 2026";
+  const releaseDate = "30 July 2026";
 
   const RED = "#e11d2a";
   const BLUE = "#1a56db";
